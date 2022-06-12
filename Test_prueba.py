@@ -4,7 +4,7 @@ import unittest
 from pyunitreport import HTMLTestRunner
 from selenium import webdriver
 
-class HelloWorld(unittest.TestCase):
+class TestPrueba(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -13,12 +13,12 @@ class HelloWorld(unittest.TestCase):
         driver.implicitly_wait(10)
 
 
-    def test_hello_world(self):
+    def test_TestPrueba(self):
         driver = self.driver
         driver.get("https://www.es.kayak.com/")
         wait(2000)
 
-    def test_visit_wiki(self):
+    def test_visit(self):
         driver = self.driver
         driver.get("https://www.es.kayak.com/stays")
 
@@ -30,4 +30,4 @@ class HelloWorld(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(verbosity=2, testRunner=HTMLTestRunner(output='reportes', report_name='hello-world'))
+    unittest.main(verbosity=2, testRunner=HTMLTestRunner(output='reportes', report_name='Reporte de prueba'))
