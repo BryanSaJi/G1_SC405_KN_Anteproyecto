@@ -1,4 +1,5 @@
 from lib2to3.pgen2 import driver
+from multiprocessing.connection import wait
 import unittest
 from pyunitreport import HTMLTestRunner
 from selenium import webdriver
@@ -15,6 +16,7 @@ class HelloWorld(unittest.TestCase):
     def test_hello_world(self):
         driver = self.driver
         driver.get("http://www.ebay.com")
+        wait(2000)
 
     def test_visit_wiki(self):
         driver = self.driver
