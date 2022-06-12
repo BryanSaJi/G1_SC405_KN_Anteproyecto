@@ -15,12 +15,12 @@ class HelloWorld(unittest.TestCase):
 
     def test_hello_world(self):
         driver = self.driver
-        driver.get("http://www.ebay.com")
+        driver.get("https://www.es.kayak.com/")
         wait(2000)
 
     def test_visit_wiki(self):
         driver = self.driver
-        driver.get("https://www.wikipedia.org")
+        driver.get("https://www.es.kayak.com/stays")
 
     @classmethod
     def tearDownClass(cls):
