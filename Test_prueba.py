@@ -12,21 +12,28 @@ from selenium import webdriver
 
 class TestPrueba(unittest.TestCase):
 
+    paisOrigen = "SJO"
+    paisDestino = "ADZ"
+    fechaIni = "2022-07-14"
+    fechaFin = "2022-07-21"
+    urlPrincipal = "https://www.kayak.com/flights/"+paisOrigen+"-"+paisDestino+"/"+fechaIni+"/"+fechaFin+"?sort=bestflight_a"
+
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome(executable_path="C:\chromedriver\chromedriver.exe")
         driver = cls.driver
         driver.implicitly_wait(10)
+        
 
    
-        
+    # Buscar vuelos entre 2 destinos Seleccionados (Costa Rica - San Andres)
     def test_casoautomatico1(self):
         driver = self.driver    
         
         # Test name: Caso automatico 1
         # Step # | name | target | value
         # 1 | open | https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a | 
-        driver.get("https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a")
+        driver.get(urlPrincipal)
         # 2 | setWindowSize | 1696x1026 | 
         driver.set_window_size(1696, 1026)
         # 3 | click | css=.yWJT-insideDrawer path | 
@@ -36,14 +43,14 @@ class TestPrueba(unittest.TestCase):
         # 5 | click | css=.c8LPF-icon | 
         driver.find_element(By.CSS_SELECTOR, ".c8LPF-icon").click() 
 
-    
+    # Buscar las restricciones de un pais seleccionado (Costa Rica)
     def test_casoautomatico2(self):
         driver = self.driver 
 
         # Test name: Caso automatico 2
         # Step # | name | target | value
         # 1 | open | https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a | 
-        driver.get("https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a")
+        driver.get(urlPrincipal)
         # 2 | setWindowSize | 1552x840 | 
         driver.set_window_size(1552, 840)
         # 3 | click | css=.yWJT-insideDrawer .svg-image | 
@@ -55,13 +62,14 @@ class TestPrueba(unittest.TestCase):
         # 6 | click | css=.Gt8D:nth-child(1) .c3I-P-name | 
         driver.find_element(By.XPATH, "//span[contains(.,'Costa Rica')]").click() 
         
+    # Buscar un paquete entre 2 destinos seleccionados (Costa Rica - Las Vegas)
     def test_casoautomatico3(self):
         driver = self.driver 
 
         # Test name: Caso automatico 3
         # Step # | name | target | value
         # 1 | open | https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a | 
-        driver.get("https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a")
+        driver.get(urlPrincipal)
         # 2 | setWindowSize | 1552x840 | 
         driver.set_window_size(1552, 840)
         # 3 | click | css=.yWJT-insideDrawer path | 
@@ -76,13 +84,14 @@ class TestPrueba(unittest.TestCase):
         #driver.find_element(By.CSS_SELECTOR, "#S-95-submit > .v-c-p").click() 
 
     
+    # Buscar opciones de cosas para hacer en un destino seleccionado (San Andres)
     def test_casoautomatico4(self):
         driver = self.driver 
 
         # Test name: Caso automatico 4
         # Step # | name | target | value
         # 1 | open | https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a | 
-        driver.get("https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a")
+        driver.get(urlPrincipal)
         # 2 | setWindowSize | 1552x840 | 
         driver.set_window_size(1552, 840)
         # 5 | click | css=.yWJT-insideDrawer .svg-image | 
@@ -102,4 +111,10 @@ class TestPrueba(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    paisOrigen = "SJO"
+    paisDestino = "ADZ"
+    fechaIni = "2022-07-14"
+    fechaFin = "2022-07-21"
+    urlPrincipal = "https://www.kayak.com/flights/"+paisOrigen+"-"+paisDestino+"/"+fechaIni+"/"+fechaFin+"?sort=bestflight_a"
+
     unittest.main(verbosity=2, testRunner=HTMLTestRunner(output='reportes', report_name='Reporte de prueba'))
