@@ -19,7 +19,7 @@ class TestPrueba(unittest.TestCase):
         driver.implicitly_wait(10)
 
    
-
+    """
     def test_casoautomatico1(self):
         driver = self.driver    
         
@@ -34,7 +34,27 @@ class TestPrueba(unittest.TestCase):
         # 4 | click | linkText=Flights | 
         driver.find_element(By.LINK_TEXT, "Flights").click()
         # 5 | click | css=.c8LPF-icon | 
-        driver.find_element(By.CSS_SELECTOR, ".c8LPF-icon").click()
+        driver.find_element(By.CSS_SELECTOR, ".c8LPF-icon").click() 
+
+    
+    def test_casoautomatico2(self):
+        driver = self.driver 
+        # Test name: Caso automatico 2
+        # Step # | name | target | value
+        # 1 | open | https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a | 
+        driver.get("https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a")
+        # 2 | setWindowSize | 1552x840 | 
+        driver.set_window_size(1552, 840)
+        # 3 | click | css=.yWJT-insideDrawer .svg-image | 
+        driver.find_element(By.CSS_SELECTOR, ".yWJT-insideDrawer .svg-image").click()
+        # 4 | click | css=.UVLb:nth-child(2) > .hsCY:nth-child(3) > .hsCY-menu-item-title | 
+        driver.find_element(By.CSS_SELECTOR, ".UVLb:nth-child(2) > .hsCY:nth-child(3) > .hsCY-menu-item-title").click()
+        # 5 | click | css=.Gt8D-mod-padding-default:nth-child(1) | 
+        driver.find_element(By.XPATH, "//div[@id='root']/div/div[2]/div/div[2]/div/div/div/div").click()
+        # 6 | click | css=.Gt8D:nth-child(1) .c3I-P-name | 
+        driver.find_element(By.XPATH, "//span[contains(.,'Costa Rica')]").click() """
+        
+
 
     @classmethod
     def tearDownClass(cls):
