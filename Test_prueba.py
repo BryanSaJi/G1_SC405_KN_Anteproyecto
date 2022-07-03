@@ -19,7 +19,7 @@ class TestPrueba(unittest.TestCase):
         driver.implicitly_wait(10)
 
    
-    """
+        
     def test_casoautomatico1(self):
         driver = self.driver    
         
@@ -39,6 +39,7 @@ class TestPrueba(unittest.TestCase):
     
     def test_casoautomatico2(self):
         driver = self.driver 
+
         # Test name: Caso automatico 2
         # Step # | name | target | value
         # 1 | open | https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a | 
@@ -52,9 +53,46 @@ class TestPrueba(unittest.TestCase):
         # 5 | click | css=.Gt8D-mod-padding-default:nth-child(1) | 
         driver.find_element(By.XPATH, "//div[@id='root']/div/div[2]/div/div[2]/div/div/div/div").click()
         # 6 | click | css=.Gt8D:nth-child(1) .c3I-P-name | 
-        driver.find_element(By.XPATH, "//span[contains(.,'Costa Rica')]").click() """
+        driver.find_element(By.XPATH, "//span[contains(.,'Costa Rica')]").click() 
         
+    def test_casoautomatico3(self):
+        driver = self.driver 
 
+        # Test name: Caso automatico 3
+        # Step # | name | target | value
+        # 1 | open | https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a | 
+        driver.get("https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a")
+        # 2 | setWindowSize | 1552x840 | 
+        driver.set_window_size(1552, 840)
+        # 3 | click | css=.yWJT-insideDrawer path | 
+        driver.find_element(By.CSS_SELECTOR, ".yWJT-insideDrawer path").click()
+        # 4 | click | css=.hsCY:nth-child(5) > .hsCY-menu-item-title | 
+        driver.find_element(By.CSS_SELECTOR, ".hsCY:nth-child(5) > .hsCY-menu-item-title").click()
+        # 5 | runScript | window.scrollTo(0,1870.4000244140625) | 
+        driver.execute_script("window.scrollTo(0,1870.4000244140625)")
+        # 6 | click | linkText=Las Vegas Vacations | 
+        driver.find_element(By.LINK_TEXT, "Las Vegas Vacations").click()
+        # 7 | click | css=#S-95-submit > .v-c-p | 
+        #driver.find_element(By.CSS_SELECTOR, "#S-95-submit > .v-c-p").click() 
+
+    
+    def test_casoautomatico4(self):
+        driver = self.driver 
+
+        # Test name: Caso automatico 4
+        # Step # | name | target | value
+        # 1 | open | https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a | 
+        driver.get("https://www.kayak.com/flights/SJO-ADZ/2022-07-14/2022-07-21?sort=bestflight_a")
+        # 2 | setWindowSize | 1552x840 | 
+        driver.set_window_size(1552, 840)
+        # 5 | click | css=.yWJT-insideDrawer .svg-image | 
+        driver.find_element(By.CSS_SELECTOR, ".yWJT-insideDrawer .svg-image").click()
+        # 6 | click | css=.hsCY:nth-child(4) > .hsCY-menu-item-title | 
+        driver.find_element(By.CSS_SELECTOR, ".hsCY:nth-child(4) > .hsCY-menu-item-title").click()
+        # 7 | click | linkText=See all | 
+        driver.find_element(By.LINK_TEXT, "See all").click()
+        # 8 | runScript | window.scrollTo(0,0) | 
+        driver.execute_script("window.scrollTo(0,0)")
 
     @classmethod
     def tearDownClass(cls):
